@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- add bootstrap link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="styles/reset.css" />
   <title>Weather Dashboard</title>
 </head>
@@ -15,6 +17,8 @@
   </header>
 
   <!-- max-width for ultra wide resolutions -->
+
+  <!-- content container for the aside search elements  -->
   <div class="container-fluid" style="max-width: 1400px">
     <div class="row">
       <aside class="col-lg-3 pb-3">
@@ -35,12 +39,32 @@
             </div>
           </div>
         </form>
-        <div class="list-group" id="history"></div>
+
+        <!-- HTML for the local storage history -->
+        <div class="list-group" id="history">
+          <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
+            <!-- button placed so local storage can be accessed -->Local storage / hisorical seaches will go here
+          </button>
+        </div>
       </aside>
 
+      <!-- HTML for the current weather and forecast -->
       <div class="col-lg-9 pb-3">
         <section id="today" class="mt-3" role="region" aria-live="polite"></section>
-        <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
+
+        <!-- HTML for the 5 day forecast -->
+        <section id="forecast" class="row mt-3" role="region" aria-live="polite"><h4>5-Day Forcast:</h4>
+          <!-- card containers for the 5 day forcast elements -->
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">matching img, unsre if this will come from the API or not</h6>
+              <p class="temp">Temp placeholder</p>
+              <p class="wind">Wind placeholder</p>
+              <p class="humidity">Humid placeholder</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
