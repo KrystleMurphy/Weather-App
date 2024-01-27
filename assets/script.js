@@ -4,9 +4,11 @@ $(document).ready(function() {
     $("#search-button").on("click", function(event) {
       event.preventDefault(); // Prevent the default form submission
       
+    //   variable for the user input
       var citySearch = $("#search-input").val();
+    //   var for the query url inc API key and city generated from the user input
       var cityURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySearch + "&limit=5&appid=" + apiKey + "&units=imperial";
-      
+
       fetch(cityURL)
         .then(response => response.json())
         .then(data => {
