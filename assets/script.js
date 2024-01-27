@@ -14,16 +14,16 @@ console.log(cityURL);
     
 
 
-    // fetch(cityURL)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Process the data returned from the API
-    //         console.log(data);
-    //     })
-    //     .catch(error => {
-    //         // Handle any errors that occurred during the fetch request
-    //         console.error(error);
-    //     });
+    fetch(cityURL)
+        .then(response => response.json())
+        .then(data => {
+            // Process the data returned from the API
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the fetch request
+            console.error(error);
+        });
 
 
 
