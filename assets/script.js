@@ -17,7 +17,13 @@ $(document).ready(function () {
         .then((response) => response.json())
         .then((data) => {
           var currentDate = dayjs().format("DD/MM/YYYY");
-          $("#city").text("City: " + data.name + ", " + currentDate);
+
+          $("#city").text(data.name + ", " + currentDate);
+
+        //   var icon = data.weather[0].icon;
+        //   var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+        //   $("#icon").attr("src", iconURL);
+
           $("#temp").text("Temperature: " + data.main.temp + "°C");
           $("#wind").text("Wind Speed: " + data.wind.speed + "mph");
           $("#humidity").text("Humidity: " + data.main.humidity + "%");
@@ -38,10 +44,17 @@ $(document).ready(function () {
             .then((response) => response.json())
             .then((data) => {
               var forcastDate = dayjs(data.list[0].dt_txt).format("DD/MM/YYYY");
-              $("#date1").text("Date: " + forcastDate);
-              $("#icon1").text("Icon: " + data.list[0].weather[0].icon);
-              $("#temp1").text("Temperature: " + data.list[0].main.temp + "°C");
-              $("#wind1").text("Wind Speed: " + data.list[0].wind.speed + "mph");
+              $("#date1").text(forcastDate);
+
+            //    var for weather icon code
+              var icon = data.list[0].weather[0].icon;
+//  insert icon code into src URL
+              var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
+// display the icon on the page 
+              $("#icon1").attr("src", iconURL);
+
+              $("#temp1").text("Temp: " + data.list[0].main.temp + "°C");
+              $("#wind1").text("Wind: " + data.list[0].wind.speed + "mph");
               $("#humidity1").text("Humidity: " + data.list[0].main.humidity + "%");
             });
         });
