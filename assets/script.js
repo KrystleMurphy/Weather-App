@@ -29,6 +29,7 @@ $(document).ready(function () {
                 //  $("#icon1").attr("src", iconURL);
 
 
+                $("#mainIcon").attr("src", iconURL);
 
                 $("#city").text(data.name + ", " + currentDate);
 
@@ -153,8 +154,15 @@ $(document).ready(function () {
                         $("#humidity5").text("Humidity: " + data.list[36].main.humidity + "%");
                     });
 
-
-
             });
     });
+
+// var citySearch = [$("#search-input").val()];
+
+localStorage.setItem('citySearch', JSON.stringify(citySearch));
+
+var searchHistory = localStorage.getItem('citySearch');
+$("#history").append(searchHistory);
+
+
 });
