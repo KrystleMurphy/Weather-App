@@ -7,9 +7,13 @@ $(document).ready(function () {
         //   variable for the user input
         var citySearch = $("#search-input").val();
         //   var for the query url inc API key and city generated from the user input
-        var cityURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySearch + "&limit=5&appid=" + apiKey + "&units=imperial";
+        // var cityURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySearch + "&limit=5&appid=" + apiKey + "&units=imperial";
+ 
+        //   var for the query url inc API key and city generated from the user input
+        var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey + "&units=imperial";
 
-        fetch(cityURL)
+        // Fetch the data from the API
+        fetch(weatherURL)
             .then(response => response.json())
             .then(data => {
                 // Process the data returned from the API
@@ -20,4 +24,12 @@ $(document).ready(function () {
                 console.error(error);
             });
     });
+
+
+
+
+
+
+    
+
 });
