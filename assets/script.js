@@ -18,7 +18,7 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(data => {
                 // Process the data returned from the API
-                console.log(data);
+                // console.log(data);
                 // create var for current date
                 var currentDate = dayjs().format("DD/MM/YYYY");
                 // display the data on the page
@@ -28,20 +28,42 @@ $(document).ready(function () {
                 $("#humidity").text("Humidity: " + data.main.humidity + "%");
 
 
+                // 5 day forcast
+                var lat = data.coord.lat;
+                var lon = data.coord.lon;
+                var forcastURL = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial";
+                // console.log(forcastURL);
 
-            })
-            .catch(error => {
-                // Handle any errors that occurred during the fetch request
-                console.error(error);
+
+                fetch(forcastURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Process the data returned from the API
+                        // console.log(data);
+                        // create var for current date
+                        var currentDate = dayjs().format("DD/MM/YYYY");
+                        // display the data on the page
+                        $("#date5").text("Date: " + currentDate);
+                        $("#icon5").text("Icon: " + data.list[0].weather[0].icon);
+                        $("#temp5").text("Temperature: " + data.list[0].main.temp + "°C");
+                        $("#wind5").text("Wind Speed: " + data.list[0].wind.speed + "mph");
+                        $("#humidity5").text("Humidity: " + data.list[0].main.humidity + "%");
+
+                        
+
+                    })
+                    .catch(error => {
+                        // Handle any errors that occurred during the fetch request
+                        console.error(error);
+                    });
+
             });
 
+
+
+
+
+
+
+
     });
-
-
-
-
-
-
-
-
-});
