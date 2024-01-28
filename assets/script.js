@@ -152,17 +152,28 @@ $(document).ready(function () {
                         $("#temp5").text("Temp: " + data.list[36].main.temp + "°C");
                         $("#wind5").text("Wind: " + data.list[36].wind.speed + "mph");
                         $("#humidity5").text("Humidity: " + data.list[36].main.humidity + "%");
+
+
+
+                        var citySearch = $("#search-input").val();
+                        localStorage.setItem('citySearch', JSON.stringify(citySearch));
+                        
+                        var searchHistory = localStorage.getItem('citySearch');
+
+                        var button = document.createElement('button');
+                        $(button).addClass('btn btn-secondary search-button'); // Add Bootstrap classes 
+                        $(button).css({ width: '100%', height: '100%' }); // Set styles using css
+                        
+                        $(button).attr('type', 'submit'); // Add type attribute
+                        $(button).attr('aria-label', 'submit search'); // Add aria-label attribute
+                        
+                        button.innerText = JSON.parse(searchHistory).toUpperCase();
+                        $("#history").append(button);
                     });
 
             });
     });
 
-// var citySearch = [$("#search-input").val()];
-
-localStorage.setItem('citySearch', JSON.stringify(citySearch));
-
-var searchHistory = localStorage.getItem('citySearch');
-$("#history").append(searchHistory);
-
+    
 
 });

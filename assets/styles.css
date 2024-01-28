@@ -2,3 +2,19 @@ aside {
     justify-content: center;
     align-items: center;
 }
+
+div { margin-top: 8px;}
+
+section {
+    margin-left: 3px;
+}
+
+.fiveday {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.forcast {
+    margin-left: 3px;
+}
