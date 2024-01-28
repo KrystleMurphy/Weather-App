@@ -61,15 +61,15 @@ $(document).ready(function () {
                         $("#date1").text(forcastDate);
 
                         //    var for weather icon code
-                        var icon = data.list[0].weather[0].icon;
+                        var icon = data.list[3].weather[0].icon;
                         //  insert icon code into src URL
                         var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                         // display the icon on the page 
                         $("#icon1").attr("src", iconURL);
 
-                        $("#temp1").text("Temp: " + data.list[0].main.temp + "°C");
-                        $("#wind1").text("Wind: " + data.list[0].wind.speed + "mph");
-                        $("#humidity1").text("Humidity: " + data.list[0].main.humidity + "%");
+                        $("#temp1").text("Temp: " + data.list[3].main.temp + "°C");
+                        $("#wind1").text("Wind: " + data.list[3].wind.speed + "mph");
+                        $("#humidity1").text("Humidity: " + data.list[3].main.humidity + "%");
                     });
 
 // CARD 2
@@ -77,20 +77,83 @@ $(document).ready(function () {
                     fetch(forcastURL)
                     .then((response) => response.json())
                     .then((data) => {
-                        var forcastDate = dayjs(data.list[0].dt_txt).format("DD/MM/YYYY");
+                        var forcastDate = dayjs(data.list[11].dt_txt).format("DD/MM/YYYY");
                         $("#date2").text(forcastDate);
 
                         //    var for weather icon code
-                        var icon = data.list[1].weather[0].icon;
+                        var icon = data.list[11].weather[0].icon;
                         //  insert icon code into src URL
                         var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                         // display the icon on the page 
                         $("#icon2").attr("src", iconURL);
 
-                        $("#temp2").text("Temp: " + data.list[1].main.temp + "°C");
-                        $("#wind2").text("Wind: " + data.list[1].wind.speed + "mph");
-                        $("#humidity2").text("Humidity: " + data.list[1].main.humidity + "%");
+                        $("#temp2").text("Temp: " + data.list[11].main.temp + "°C");
+                        $("#wind2").text("Wind: " + data.list[11].wind.speed + "mph");
+                        $("#humidity2").text("Humidity: " + data.list[11].main.humidity + "%");
                     });
+
+                    // CARD 3
+
+                    fetch(forcastURL)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        var forcastDate = dayjs(data.list[19].dt_txt).format("DD/MM/YYYY");
+                        $("#date3").text(forcastDate);
+
+                        //    var for weather icon code
+                        var icon = data.list[19].weather[0].icon;
+                        //  insert icon code into src URL
+                        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
+                        // display the icon on the page 
+                        $("#icon3").attr("src", iconURL);
+
+                        $("#temp3").text("Temp: " + data.list[19].main.temp + "°C");
+                        $("#wind3").text("Wind: " + data.list[19].wind.speed + "mph");
+                        $("#humidity3").text("Humidity: " + data.list[19].main.humidity + "%");
+                    });
+
+
+                    // CARD 4
+
+                    fetch(forcastURL)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        var forcastDate = dayjs(data.list[27].dt_txt).format("DD/MM/YYYY");
+                        $("#date4").text(forcastDate);
+
+                        //    var for weather icon code
+                        var icon = data.list[27].weather[0].icon;
+                        //  insert icon code into src URL
+                        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
+                        // display the icon on the page 
+                        $("#icon4").attr("src", iconURL);
+
+                        $("#temp4").text("Temp: " + data.list[27].main.temp + "°C");
+                        $("#wind4").text("Wind: " + data.list[27].wind.speed + "mph");
+                        $("#humidity4").text("Humidity: " + data.list[27].main.humidity + "%");
+                    });
+
+                    // CARD 5
+
+                    fetch(forcastURL)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        var forcastDate = dayjs(data.list[36].dt_txt).format("DD/MM/YYYY");
+                        $("#date5").text(forcastDate);
+
+                        //    var for weather icon code
+                        var icon = data.list[36].weather[0].icon;
+                        //  insert icon code into src URL
+                        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
+                        // display the icon on the page 
+                        $("#icon5").attr("src", iconURL);
+
+                        $("#temp5").text("Temp: " + data.list[36].main.temp + "°C");
+                        $("#wind5").text("Wind: " + data.list[36].wind.speed + "mph");
+                        $("#humidity5").text("Humidity: " + data.list[36].main.humidity + "%");
+                    });
+
+
 
             });
     });
