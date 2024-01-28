@@ -13,13 +13,11 @@ $(document).ready(function () {
             apiKey +
             "&units=imperial";
 
-        fetch(weatherURL)
-            .then((response) => response.json())
+        fetch(weatherURL) // Fetch the data from the API
+            .then((response) => response.json()) // Convert the response to JSON
             .then((data) => {
-                var currentDate = dayjs().format("DD/MM/YYYY");
+                var currentDate = dayjs().format("DD/MM/YYYY"); // Get the current date
                 //   console.log(data);
-
-                // ICON NOT WORKING - FIX THIS!
 
                 //   var for weather icon code
                 var iconMain = data.weather[0].icon;
@@ -29,20 +27,20 @@ $(document).ready(function () {
                 //  $("#icon1").attr("src", iconURL);
 
 
-                $("#mainIcon").attr("src", iconURL);
+                $("#mainIcon").attr("src", iconURL); // Set the image source
 
-                $("#city").text(data.name + ", " + currentDate);
+                $("#city").text(data.name + ", " + currentDate); // Set the city name
 
                 //   var icon = data.weather[0].icon;
                 //   var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
                 //   $("#icon").attr("src", iconURL);
 
-                $("#temp").text("Temperature: " + data.main.temp + "°C");
-                $("#wind").text("Wind Speed: " + data.wind.speed + "mph");
-                $("#humidity").text("Humidity: " + data.main.humidity + "%");
+                $("#temp").text("Temperature: " + data.main.temp + "°C"); // Set the temperature
+                $("#wind").text("Wind Speed: " + data.wind.speed + "mph"); // Set the wind speed
+                $("#humidity").text("Humidity: " + data.main.humidity + "%"); // Set the humidity
 
-                var lat = data.coord.lat;
-                var lon = data.coord.lon;
+                var lat = data.coord.lat; // Get the latitude and store as var
+                var lon = data.coord.lon; // Get the longitude and store as var
 
                 var forcastURL =
                     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -55,7 +53,7 @@ $(document).ready(function () {
 
 // CARD 1
 
-                fetch(forcastURL)
+                fetch(forcastURL) // Fetch the data from the API
                     .then((response) => response.json())
                     .then((data) => {
                         var forcastDate = dayjs(data.list[3].dt_txt).format("DD/MM/YYYY");
@@ -154,11 +152,11 @@ $(document).ready(function () {
                         $("#humidity5").text("Humidity: " + data.list[36].main.humidity + "%");
 
 
-
-                        var citySearch = $("#search-input").val();
-                        localStorage.setItem('citySearch', JSON.stringify(citySearch));
+// set up local storage for search history
+                        var citySearch = $("#search-input").val(); // get the value of the search
+                        localStorage.setItem('citySearch', JSON.stringify(citySearch)); // store it in local storage
                         
-                        var searchHistory = localStorage.getItem('citySearch');
+                        var searchHistory = localStorage.getItem('citySearch'); // get the value from local storage store as var
 
                         var button = document.createElement('button');
                         $(button).addClass('btn btn-secondary search-button'); // Add Bootstrap classes 
@@ -167,8 +165,8 @@ $(document).ready(function () {
                         $(button).attr('type', 'submit'); // Add type attribute
                         $(button).attr('aria-label', 'submit search'); // Add aria-label attribute
                         
-                        button.innerText = JSON.parse(searchHistory).toUpperCase();
-                        $("#history").append(button);
+                        button.innerText = JSON.parse(searchHistory).toUpperCase(); // Set innerText as caps
+                        $("#history").append(button); // Append button to history div
                     });
 
             });
