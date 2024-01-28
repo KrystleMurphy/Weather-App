@@ -40,16 +40,16 @@ $(document).ready(function () {
                     .then(data => {
                         // Process the data returned from the API
                         // console.log(data);
-                        // create var for current date
-                        var currentDate = dayjs().format("DD/MM/YYYY");
+                        // create var for forcast date
+                        var forcastDate = dayjs(data.list[0].dt_txt).format("DD/MM/YYYY");
                         // display the data on the page
-                        $("#date5").text("Date: " + currentDate);
-                        $("#icon5").text("Icon: " + data.list[0].weather[0].icon);
-                        $("#temp5").text("Temperature: " + data.list[0].main.temp + "°C");
-                        $("#wind5").text("Wind Speed: " + data.list[0].wind.speed + "mph");
-                        $("#humidity5").text("Humidity: " + data.list[0].main.humidity + "%");
+                        $("#date1").text("Date: " + forcastDate);
+                        $("#icon1").text("Icon: " + data.list[0].weather[0].icon);
+                        $("#temp1").text("Temperature: " + data.list[0].main.temp + "°C");
+                        $("#wind1").text("Wind Speed: " + data.list[0].wind.speed + "mph");
+                        $("#humidity1").text("Humidity: " + data.list[0].main.humidity + "%");
 
-                        
+
 
                     })
                     .catch(error => {
