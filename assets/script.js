@@ -51,6 +51,8 @@ $(document).ready(function () {
                     apiKey +
                     "&units=imperial";
 
+                    
+
 // CARD 1
 
                 fetch(forcastURL) // Fetch the data from the API
@@ -160,7 +162,7 @@ $(document).ready(function () {
 
                         var button = document.createElement('button');
                         $(button).addClass('btn btn-secondary search-button'); // Add Bootstrap classes 
-                        $(button).css({ width: '100%', height: '100%' }); // Set styles using css
+                        $(button).css({ width: '100%', height: '100%', }); // Set styles using css
                         
                         $(button).attr('type', 'submit'); // Add type attribute
                         $(button).attr('aria-label', 'submit search'); // Add aria-label attribute
@@ -172,6 +174,10 @@ $(document).ready(function () {
             });
     });
 
+//     $('.btn-secondary').on('click', function() {
+// fetch(weatherURL);
+// fetch(forcastURL);
+//     }
     
 
 });
